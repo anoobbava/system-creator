@@ -59,3 +59,8 @@ echo "!!!Install Mysql!!!"
 echo "!!!Install ImageMagick for image processing!!!"
 
   sudo apt-get install imagemagick --fix-missing -y
+
+echo "!!!Install Chromium Browser!!!"
+
+  sudo apt-get install chromium-browser
+
