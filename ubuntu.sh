@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "!!!Update System!!!"
-
+  echo "\n\n\n"
   sudo apt-get update
   echo "\n\n\n"
 
@@ -12,6 +12,16 @@ echo "!!!Node Installation!!!"
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   echo "\n\n\n"
 
+echo "Install Git"
+  echo "Press Enter to Install Git"
+  read choice
+  if [ -z "$choice" ]
+  then
+    sudo apt-get install git
+  fi
+  echo "\n\n\n"
+
+
 echo "!!!Update System!!!"
 
   sudo apt-get update
@@ -19,69 +29,122 @@ echo "!!!Update System!!!"
   echo "\n\n\n"
 
 echo "!!!Install Rbenv"
-
-  cd
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-  echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-  rbenv rehash
-  # exec $SHELL
-  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-  echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-  # exec $SHELL
+  echo "Press Enter to Install Rbenv"
+  read choice
+  if [ -z "$choice" ]
+  then
+    cd
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+    rbenv rehash
+    # exec $SHELL
+    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+    echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+    # exec $SHELL
+  fi
   echo "\n\n\n"
 
 echo "!!!Install Ruby!!!"
-
-  rbenv install 2.5.1
-  rebenv install 2.4.1
-  rbenv global 2.5.1
+  echo "Press Enter to Install Ruby"
+  read choice
+  if [ -z "$choice" ]
+  then
+    rbenv install 2.5.1
+    rbenv install 2.4.1
+    rbenv global 2.5.1
+  fi
   echo "\n\n\n"
 
 echo "!!!Install Bundler!!!"
-
-  gem install bundler
+  echo "Press Enter to Install Bundler"
+  read choice
+  if [ -z "$choice" ]
+  then
+    gem install bundler
+  fi
   echo "\n\n\n"
 
 echo "!!!Update Git!!!"
-  echo "\nenter the User Name"
-  read user_name
-  echo "\nenter the Email"
-  read email
-  git config --global color.ui true
-  git config --global user.name $user_name
-  git config --global user.email $email
+  echo "Press Enter to update Git"
+  read choice
+  if [ -z "$choice" ]
+  then
+    echo "\nenter the User Name"
+    read user_name
+    echo "\nenter the Email"
+    read email
+    git config --global color.ui true
+    git config --global user.name $user_name
+    git config --global user.email $email
+  fi
   echo "\n\n\n"
 
-echo "!!!Install Rails!!!"
-
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-  sudo apt-get install -y nodejs
+echo "!!!Install Node JS!!!"
+  echo "Press Enter to Install Node"
+  read choice
+  if [ -z "$choice" ]
+  then
+    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+  fi
 
 echo "!!!Install Rails 5.2.0!!!"
-
-  gem install rails -v 5.2.0
-  rbenv rehash
+  echo "Press Enter to Install Rails"
+  read choice
+  if [ -z "$choice" ]
+  then
+    gem install rails -v 5.2.0
+    rbenv rehash
+  fi
   echo "\n\n\n"
 
 echo "!!!Install Mysql!!!"
-
-  sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+  echo "Press Enter to Install Mysql"
+  read choice
+  if [ -z "$choice" ]
+  then
+    sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+  fi
   echo "\n\n\n"
 
 echo "!!!Install ImageMagick for image processing!!!"
-
-  sudo apt-get install imagemagick --fix-missing -y
+  echo "Press Enter to Install ImageMagick"
+  read choice
+  if [ -z "$choice" ]
+  then
+    sudo apt-get install imagemagick --fix-missing -y
+  fi
   echo "\n\n\n"
 
 echo "!!!Install Chromium Browser!!!"
-
-  sudo apt-get install chromium-browser
+  echo "Press Enter to Install Chromium"
+  read choice
+  if [ -z "$choice" ]
+  then
+    sudo apt-get install chromium-browser
+  fi
   echo "\n\n\n"
 
-echo "!!!intall Sublime 3"
-
-  sudo add-apt-repository ppa:webupd8team/sublime-text-3
-  sudo apt-get update
-  sudo apt-get install sublime-text-installer
+echo "!!!install Sublime 3"
+  echo "Press Enter to Install Sublime 3"
+  read choice
+  if [ -z "$choice" ]
+  then
+    sudo add-apt-repository ppa:webupd8team/sublime-text-3
+    sudo apt-get update
+    sudo apt-get install sublime-text-installer
+  fi
   echo "\n\n\n"
+
+echo "!!! install Atom Editor"
+  echo "Press Enter to Install Atom"
+  read choice
+  if [ -z "$choice" ]
+  then
+    sudo add-apt-repository ppa:webupd8team/atom
+    sudo apt-get update
+    sudo apt-get install atom
+  fi
+  echo "\n\n\n"
+
