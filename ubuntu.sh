@@ -129,9 +129,9 @@ echo "!!!install Sublime 3"
   read choice
   if [ -z "$choice" ]
   then
-    sudo add-apt-repository ppa:webupd8team/sublime-text-3
-    sudo apt-get update
-    sudo apt-get install sublime-text-installer
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+    sudo apt-add-repository "deb https://download.sublimetext.com/ apt/stable/"
+    sudo apt install sublime-text
   fi
   echo "\n\n\n"
 
