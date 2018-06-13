@@ -34,8 +34,11 @@ echo "!!!Install Rbenv"
   if [ -z "$choice" ]
   then
     curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
-    rbenv rehash
-
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    ~/.rbenv/bin/rbenv init
+    echo "\n\n\n"
+    echo "checking rbenv using rbenv-doctor"
+    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
   fi
   echo "\n\n\n"
 
@@ -47,6 +50,7 @@ echo "!!!Install Ruby!!!"
     rbenv install 2.5.1
     rbenv install 2.4.1
     rbenv global 2.5.1
+    rbenv rehash
   fi
   echo "\n\n\n"
 
